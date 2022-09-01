@@ -1,0 +1,24 @@
+package xpathLocator;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class FlipkartPrice {
+public static void main(String[] args) throws InterruptedException {
+		
+		System.setProperty("webdriver.chrome.driver","./drivers/chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get("https://www.flipkart.com");
+		Thread.sleep(8000);
+	driver.findElement(By.xpath("//button[.='✕']")).click();
+	driver.findElement(By.name("q")).sendKeys("Samsung F22");
+	driver.findElement(By.xpath("//button[@class='L0Z3Pu']")).click();
+	Thread.sleep(3000);
+	WebElement priceofsamsungF22 = driver.findElement(By.xpath("/div[.='SAMSUNG Galaxy F22(Denim Black,128GB)']"));
+	System.out.println(priceofsamsungF22);
+	}
+
+}
